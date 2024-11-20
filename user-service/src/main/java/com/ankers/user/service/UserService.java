@@ -17,7 +17,7 @@ public class UserService {
 
     public User queryById(Long id) {
         User user = userMapper.findById(id);
-        user.setUsername(user.getUsername() + "=>" + port);
+        user.setUsername(user.getUsername() + "<=这是动态端口号=>" + port);
         return user;
     }
 }
