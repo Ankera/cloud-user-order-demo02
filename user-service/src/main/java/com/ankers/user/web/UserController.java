@@ -41,6 +41,10 @@ public class UserController {
     @GetMapping("/testData")
     public String getDateNow() {
         System.out.println("====new request" + dateFormatVO.getFormat());
-        return LocalDate.now().format(DateTimeFormatter.ofPattern(dateFormatVO.getFormat()));
+        String format = dateFormatVO.getFormat();
+        if (format == null) {
+            format = "yyyy-MM-dd";
+        }
+        return LocalDate.now().format(DateTimeFormatter.ofPattern(format));
     }
 }
