@@ -12,7 +12,8 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        cluster-name: HZ
+#        cluster-name: HZ
+#        namespace: 7b5d82ed-f33a-40d0-a70b-ed4ff543133d
 mybatis:
   type-aliases-package: com.ankers.user.pojo
   configuration:
@@ -34,3 +35,13 @@ ribbon:
   eager-load:
     enabled: true # 开启饥饿加载
     clients: userservice # 指定饥饿加载的服务名称
+# Bean FeignConfig 注解配置
+#feign:
+#  client:
+#    config:
+#      default:
+feign:
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50

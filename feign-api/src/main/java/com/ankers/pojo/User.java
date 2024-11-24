@@ -1,4 +1,4 @@
-package com.ankers.order.pojo;
+package com.ankers.pojo;
 
 import lombok.Data;
 

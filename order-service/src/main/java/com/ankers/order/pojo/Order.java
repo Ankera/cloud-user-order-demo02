@@ -1,5 +1,6 @@
 package com.ankers.order.pojo;
 
+import com.ankers.pojo.User;
 import lombok.Data;
 
 @Data
