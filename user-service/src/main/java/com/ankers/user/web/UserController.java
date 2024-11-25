@@ -39,12 +39,12 @@ public class UserController {
     private DateFormatVO dateFormatVO;
 
     @GetMapping("/testData")
-    public String getDateNow() {
+    public String getDateNow(@RequestHeader(value = "Truth", required = false) String truth) {
         System.out.println("====new request" + dateFormatVO.getFormat());
         String format = dateFormatVO.getFormat();
         if (format == null) {
             format = "yyyy-MM-dd";
         }
-        return LocalDate.now().format(DateTimeFormatter.ofPattern(format));
+        return LocalDate.now().format(DateTimeFormatter.ofPattern(format)) + "<==>" + truth;
     }
 }

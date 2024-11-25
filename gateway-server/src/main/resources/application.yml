@@ -14,7 +14,24 @@ spring:
           uri: lb://userservice
           predicates:
             - Path=/user/**
+#          filters:
+#            - AddRequestHeader=Truth, ankers header demo
         - id: order-service
           uri: lb://orderservice
           predicates:
             - Path=/order/**
+      default-filters:
+        - AddRequestHeader=Truth, ankers header default-filters
+      global-cors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[*/**]':
+            allowed-origins:
+              - "http://localhost:8080"
+              - "https://www.vevor.com/"
+            allowed-methods:
+              - "GET"
+              - "POST"
+              - "PUT"
+            allowed-headers: "*"
+            allow-credentials: true
